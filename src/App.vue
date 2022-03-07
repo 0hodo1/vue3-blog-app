@@ -1,30 +1,43 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <Navbar />
+  <router-view />
 </template>
 
+<script>
+import Navbar from "./components/Navbar.vue";
+export default {
+  components: { Navbar },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
+
+body {
+  max-width: 1200px;
+  margin: 20px auto;
+  font-family: "Hubballi", cursive;
+  font-size: 25px;
+  background-color: #fafafa;
 }
 
-nav {
-  padding: 30px;
+p,
+h1,
+h2,
+h3,
+a,
+ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #333;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+h2 {
+  margin-bottom: 40px;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 8px;
 }
 </style>
