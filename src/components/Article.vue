@@ -1,8 +1,8 @@
 <template>
   <div class="article">
-    <a>
+    <router-link :to="{ name: 'Detail', params: { id: article.id } }">
       <h3>{{ article.title }}</h3>
-    </a>
+    </router-link>
   </div>
 </template>
 

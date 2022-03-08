@@ -1,17 +1,56 @@
 <template>
   <div class="add-article">
-    <form>
+    <form @submit.prevent="addArticle">
       <label>Title:</label>
-      <input type="text" id="title" name="title" required />
+      <input type="text" id="title" v-model="title" name="title" required />
       <label>Description:</label>
-      <textarea id="description" name="description" required />
+      <textarea
+        id="description"
+        v-model="description"
+        name="description"
+        required
+      />
       <button>Add Article</button>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+import { ref } from "vue";
+import { db, timestamp } from "../firebase/config";
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const title = ref("");
+    const description = ref("");
+
+    const router = useRouter();
+
+    const addArticle = async () => {
+      const article = {
+        title: title.value,
+        description: description.value,
+        createdAt: timestamp(),
+      };
+      const res = await db
+        .collection("articles")
+        .add(article)
+        .then(() => {
+          router.push({ name: "home" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    return {
+      title,
+      description,
+      addArticle,
+    };
+  },
+};
 </script>
 
 <style>
