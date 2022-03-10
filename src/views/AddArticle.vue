@@ -2,10 +2,16 @@
   <div class="add-article">
     <form @submit.prevent="addArticle">
       <label>Title:</label>
-      <input type="text" id="title" v-model="title" name="title" required />
+      <input
+        type="text"
+        id="title-input"
+        v-model="title"
+        name="title"
+        required
+      />
       <label>Description:</label>
       <textarea
-        id="description"
+        id="description-input"
         v-model="description"
         name="description"
         required
@@ -75,14 +81,32 @@ text-area {
 .add-article button {
   display: block;
   margin: 20px auto;
-  padding: 10px;
+  padding: 15px 20px;
   border: none;
-  background: #eb4d4b;
+  background: #d94862;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 10px;
 }
 .add-article button:hover {
-  background: #d15656;
+  background: #d61f41;
+}
+
+#title-input,
+#description-input {
+  border: 2px solid #bdbebf;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#description-input {
+  min-height: 300px;
+  max-height: 600px;
+}
+#title-input:focus-visible,
+#description-input:focus-visible {
+  outline: none;
+  border: 2px solid #d94862;
 }
 </style>

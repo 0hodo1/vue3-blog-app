@@ -17,6 +17,7 @@ nav {
   padding-bottom: 10px;
   border-bottom: 1px solid #333;
   text-transform: uppercase;
+  font-size: 40px;
 }
 
 nav ul {
@@ -29,9 +30,9 @@ nav li {
   margin-left: 20px;
 }
 nav a {
-  color: #333;
+  color: #d94862;
 }
 nav .router-link-active {
-  color: #eb4d4b;
+  color: #d94862;
 }
 </style>

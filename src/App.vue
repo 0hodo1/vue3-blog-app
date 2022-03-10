@@ -18,7 +18,7 @@ body {
   margin: 20px auto;
   font-family: "Hubballi", cursive;
   font-size: 25px;
-  background-color: #fafafa;
+  background-color: #f2f2f2;
 }
 
 p,
